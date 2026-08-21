@@ -1,0 +1,3 @@
+Bellialith visual redesign based on the approved gothic monochrome mockup.
+Replace assets/bellialith-pfp.png with the NEW transparent PFP when you have it.
+The layout is intentionally built to match the reference: dark occult background, thin distressed borders, gothic typography, hero character, status panel, six feature cards, updates, roadmap and CTA.
