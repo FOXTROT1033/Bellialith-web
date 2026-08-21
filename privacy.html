@@ -2,31 +2,20 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0">
 
+    <meta
+        name="description"
+        content="Bellialith Privacy Policy.">
+
     <title>Privacy Policy — Bellialith</title>
-
-
-    <!-- GOOGLE FONTS -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-
-    <!-- MAIN CSS -->
 
     <link
         rel="stylesheet"
         href="style.css">
-
 </head>
 
 
@@ -34,23 +23,10 @@
 
 
     <!-- =========================================
-         BACKGROUND
-    ========================================== -->
-
-    <div class="background-layer"></div>
-
-    <div class="overlay-layer"></div>
-
-
-
-    <!-- =========================================
-         NAVBAR
+         HEADER
     ========================================== -->
 
     <header class="site-header">
-
-
-        <!-- LOGO -->
 
         <a
             class="brand"
@@ -67,63 +43,38 @@
         </a>
 
 
-
-        <!-- NAVIGATION -->
-
         <nav>
-
-
-            <!-- HOME -->
 
             <a href="index.html">
                 Home
             </a>
 
-
-            <!-- FEATURES -->
+            <a href="commands.html">
+                Commands
+            </a>
 
             <a href="features.html">
                 Features
             </a>
 
-
-            <!-- COMMANDS -->
-
-            <a href="commands.html">
-                Commands
-            </a>
-
-
-            <!-- UPDATES -->
-
             <a href="updates.html">
                 Updates
             </a>
 
-
-            <!-- PRIVACY -->
-
             <a
-                class="active"
-                href="privacy.html">
+                href="privacy.html"
+                class="active">
 
                 Privacy
 
             </a>
 
-
-            <!-- TERMS -->
-
             <a href="terms.html">
                 Terms
             </a>
 
-
         </nav>
 
-
-
-        <!-- ADD TO DISCORD -->
 
         <a
             class="button button-small"
@@ -135,9 +86,7 @@
 
         </a>
 
-
     </header>
-
 
 
 
@@ -148,177 +97,450 @@
     <main class="legal-page">
 
 
-        <!-- PAGE LABEL -->
-
         <div class="eyebrow">
             LEGAL
         </div>
 
-
-        <!-- TITLE -->
 
         <h1>
             Privacy Policy
         </h1>
 
 
-        <!-- LAST UPDATED -->
-
         <p class="muted">
-            Last updated: August 20, 2026
+            Last updated: August 21, 2026
         </p>
 
 
 
         <!-- =========================================
-             NOTICE
-        ========================================== -->
-
-        <div class="notice">
-
-            <strong>
-                Draft:
-            </strong>
-
-            Confirm the exact data practices and official
-            contact method before treating this as the final policy.
-
-        </div>
-
-
-
-        <!-- =========================================
-             SECTION 1
+             1. INTRODUCTION
         ========================================== -->
 
         <h2>
-            1. What Bellialith stores
+            1. Introduction
         </h2>
 
+        <p>
+            Bellialith is a Discord bot focused on
+            character collecting, rolls, progression,
+            rewards, inventory and an in-server economy.
+        </p>
 
         <p>
-
-            Bellialith may store Discord identifiers
-            and gameplay data required for features
-            such as coins, XP, rolls, characters,
-            collections, inventories and progression.
-
+            This Privacy Policy explains what information
+            Bellialith processes, where that information is
+            used, and how it is handled when you interact
+            with the bot.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 2
+             2. INFORMATION STORED
         ========================================== -->
 
         <h2>
-            2. Why this data is used
+            2. Information Stored
         </h2>
 
+        <p>
+            Bellialith stores information required to
+            provide its gameplay and progression systems.
+            Persistent gameplay data is stored using
+            SQLite.
+        </p>
 
         <p>
+            Depending on your use of Bellialith, the stored
+            gameplay information may include:
+        </p>
 
-            This information is used to provide gameplay
-            systems and keep user progress between sessions.
+        <ul>
 
+            <li>
+                Your Discord User ID
+            </li>
+
+            <li>
+                Coins
+            </li>
+
+            <li>
+                Experience points (XP)
+            </li>
+
+            <li>
+                Rolls and remaining rolls
+            </li>
+
+            <li>
+                Collected characters
+            </li>
+
+            <li>
+                Inventory items
+            </li>
+
+            <li>
+                Daily reward-related progression
+            </li>
+
+            <li>
+                Other gameplay progression required by
+                Bellialith's systems
+            </li>
+
+        </ul>
+
+        <p>
+            Bellialith does not use your Discord username
+            as the persistent identifier for your gameplay
+            database record. The bot primarily associates
+            gameplay data with your Discord User ID.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 3
+             3. PROFILE AND COLLECTION DATA
         ========================================== -->
 
         <h2>
-            3. Server information
+            3. Profile, Collection and Inventory Data
         </h2>
 
+        <p>
+            Bellialith's profile system can display
+            gameplay information such as level, XP, coins,
+            rolls, remaining rolls and daily or extra
+            progression.
+        </p>
 
         <p>
+            Characters are added to a user's collection
+            after the user obtains a character through
+            Bellialith's roll and claim systems.
+        </p>
 
-            Bellialith may process server and channel
-            information required to operate commands
-            and server-specific behavior.
-
+        <p>
+            Inventory data represents items obtained through
+            Bellialith's shop and related gameplay systems.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 4
+             4. CHARACTER DATA
         ========================================== -->
 
         <h2>
-            4. Data sharing
+            4. Character Data
         </h2>
 
+        <p>
+            Bellialith maintains a static character catalog
+            separately from user gameplay data.
+            Character information is stored in a JSON file
+            and is used to provide the available character
+            catalog.
+        </p>
 
         <p>
-
-            Bellialith is not intended to sell user
-            gameplay data. Data may be processed by
-            infrastructure required to operate the bot.
-
+            The character catalog itself is not a personal
+            user profile and does not represent a user's
+            collected characters. A user's collection is
+            stored separately as gameplay data.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 5
+             5. SERVER AND CHANNEL INFORMATION
         ========================================== -->
 
         <h2>
-            5. Retention and deletion
+            5. Server and Channel Information
         </h2>
 
+        <p>
+            Bellialith processes Discord server information
+            required to operate within a server.
+        </p>
 
         <p>
+            Server-specific information may be used for
+            features such as moderation logging and
+            server-specific bot behavior.
+        </p>
 
-            Gameplay data may be retained while needed
-            to provide Bellialith. Add the official
-            deletion-request process here.
-
+        <p>
+            Channel information may appear in moderation
+            logs when an event occurs in a Discord channel.
+            Channel information used by moderation logs is
+            not part of the user's persistent gameplay
+            profile.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 6
+             6. MODERATION LOGS
         ========================================== -->
 
         <h2>
-            6. Changes
+            6. Moderation Logs
         </h2>
 
+        <p>
+            Bellialith includes a moderation logging system
+            that operates through a dedicated Discord
+            moderation-log channel.
+        </p>
 
         <p>
+            Depending on the event, moderation logs may
+            contain information such as:
+        </p>
 
-            This policy may change as Bellialith's
-            features and infrastructure evolve.
+        <ul>
 
+            <li>
+                Discord User ID
+            </li>
+
+            <li>
+                Discord username or display name
+            </li>
+
+            <li>
+                Server name
+            </li>
+
+            <li>
+                Channel information
+            </li>
+
+            <li>
+                Message content when a message is deleted
+                or edited
+            </li>
+
+            <li>
+                Information about member joins and leaves
+            </li>
+
+            <li>
+                Information about bans
+            </li>
+
+            <li>
+                Information about timeouts and timeout
+                removals
+            </li>
+
+            <li>
+                Event timestamps
+            </li>
+
+        </ul>
+
+        <p>
+            These moderation records are handled through
+            Discord channels and are separate from
+            Bellialith's persistent gameplay database.
         </p>
 
 
 
         <!-- =========================================
-             SECTION 7
+             7. WHY INFORMATION IS USED
         ========================================== -->
 
         <h2>
-            7. Contact
+            7. How Information Is Used
         </h2>
 
+        <p>
+            Information processed by Bellialith is used to:
+        </p>
+
+        <ul>
+
+            <li>
+                Provide Bellialith's gameplay systems
+            </li>
+
+            <li>
+                Preserve user progression between sessions
+            </li>
+
+            <li>
+                Manage characters and collections
+            </li>
+
+            <li>
+                Manage coins, XP and rolls
+            </li>
+
+            <li>
+                Manage inventory and shop-related items
+            </li>
+
+            <li>
+                Provide daily rewards
+            </li>
+
+            <li>
+                Operate server moderation logs
+            </li>
+
+            <li>
+                Respond to commands and interactions
+            </li>
+
+        </ul>
+
+
+
+        <!-- =========================================
+             8. DATA SHARING
+        ========================================== -->
+
+        <h2>
+            8. Data Sharing
+        </h2>
 
         <p>
+            Bellialith does not sell user gameplay data.
+        </p>
 
-            Replace this section with the official
-            Bellialith support contact before publishing.
+        <p>
+            Bellialith does not currently use additional
+            external APIs or third-party data services for
+            its gameplay systems beyond the Discord platform
+            required to operate the bot.
+        </p>
 
+        <p>
+            Information appearing in Discord moderation
+            channels is subject to Discord's own platform
+            and data practices.
+        </p>
+
+
+
+        <!-- =========================================
+             9. DATA RETENTION AND DELETION
+        ========================================== -->
+
+        <h2>
+            9. Data Retention and Deletion
+        </h2>
+
+        <p>
+            Gameplay information may remain stored while it
+            is required for Bellialith to provide its
+            persistent gameplay systems.
+        </p>
+
+        <p>
+            Bellialith currently does not provide a
+            self-service command or automated system for
+            permanently deleting a user's stored gameplay
+            data.
+        </p>
+
+        <p>
+            Because the current bot does not include an
+            automated data-deletion system, no automatic
+            deletion procedure is represented by this
+            website.
+        </p>
+
+        <p>
+            If Bellialith introduces a formal data deletion
+            process in the future, this Privacy Policy will
+            be updated to describe that process.
+        </p>
+
+
+
+        <!-- =========================================
+             10. SECURITY
+        ========================================== -->
+
+        <h2>
+            10. Security
+        </h2>
+
+        <p>
+            Bellialith uses a local SQLite database for
+            persistent gameplay information and Discord
+            channels for moderation logging.
+        </p>
+
+        <p>
+            No online service can guarantee absolute
+            security. Reasonable measures should be taken
+            to protect the bot's database, configuration
+            and Discord environment from unauthorized
+            access.
+        </p>
+
+
+
+        <!-- =========================================
+             11. CHANGES TO THIS POLICY
+        ========================================== -->
+
+        <h2>
+            11. Changes to This Policy
+        </h2>
+
+        <p>
+            Bellialith is an actively developed project.
+            Its features, data practices and infrastructure
+            may change over time.
+        </p>
+
+        <p>
+            This Privacy Policy may therefore be updated
+            when Bellialith introduces new features,
+            changes how information is handled, or adds
+            new data-related functionality.
+        </p>
+
+
+
+        <!-- =========================================
+             12. CONTACT
+        ========================================== -->
+
+        <h2>
+            12. Contact
+        </h2>
+
+        <p>
+            For privacy questions or questions about how
+            Bellialith handles information, you can contact
+            the Bellialith project through the official
+            support server:
+        </p>
+
+        <p>
+            <a
+                href="https://discord.gg/EyUWZgh5Bt"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Bellialith Support Server
+
+            </a>
         </p>
 
 
     </main>
-
 
 
 
@@ -328,8 +550,6 @@
 
     <footer class="site-footer">
 
-
-        <!-- FOOTER LOGO -->
 
         <a
             class="brand"
@@ -346,24 +566,16 @@
         </a>
 
 
-
-        <!-- COPYRIGHT -->
-
         <p>
             © 2026 Bellialith.
         </p>
 
 
-
-        <!-- FOOTER LINKS -->
-
         <div class="footer-links">
-
 
             <a href="terms.html">
                 Terms
             </a>
-
 
             <a
                 href="privacy.html"
@@ -373,17 +585,12 @@
 
             </a>
 
-
             <a href="index.html">
                 Home
             </a>
 
-
         </div>
 
-
-
-        <!-- PRIVACY SUPPORT -->
 
         <p class="footer-support">
 
