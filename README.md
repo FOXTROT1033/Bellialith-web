@@ -1,22 +1,14 @@
 # Bellialith Website
 
-Official website for Bellialith, a Discord character-collecting bot.
+Static website for Bellialith.
 
-## Pages
+## V2
+- Redesigned landing page
+- Responsive navigation and layout
+- Categorized command documentation
+- Release/update section
+- Roadmap
+- Privacy and Terms pages
+- Uses `assets/bellialith_store.png`
 
-- `index.html` — landing page
-- `commands.html` — command documentation
-- `terms.html` — Terms of Service template
-- `privacy.html` — Privacy Policy template
-- `style.css` — shared styling
-- `assets/` — website assets
-
-## Before publishing
-
-Replace the `#` placeholders used by the Discord invite and support server buttons.
-
-Review the Terms of Service and Privacy Policy with the actual data practices of the bot and add an official contact method.
-
-## GitHub Pages
-
-This project is a static website and can be deployed directly with GitHub Pages.
+Before publishing, replace the `#` placeholders with the real Discord invite/support URLs and finalize the legal contact details.
