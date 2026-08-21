@@ -1,0 +1,16 @@
+BELLIALITH SITE IMAGE UPDATE
+
+Replace your local index.html and style.css with the versions in this folder.
+Copy the three files from assets/ into your project's assets/ folder.
+
+Files:
+- assets/bellialith-background.webp  -> site background
+- assets/bellialith_store.png       -> Bellialith PFP/logo (also fixes the broken logo)
+- assets/bellialith-banner.webp     -> homepage artwork
+
+Then run:
+git add .
+git commit -m "Add Bellialith visual identity"
+git push
+
+GitHub Pages should update automatically.
