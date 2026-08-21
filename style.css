@@ -1,405 +1,1314 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background:#000;
-color:white;
-font-family:'Inter',sans-serif;
-overflow-x:hidden;
-position:relative;
+html {
+    scroll-behavior: smooth;
 }
 
-.background-layer{
-position:fixed;
-inset:0;
+body {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("assets/bellialith-background.jpg");
 
-background:
-linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.55)), url("assets/bellialith-background.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
-background-size:cover;
-background-position:center;
+    color: white;
+    font-family: 'Inter', sans-serif;
 
-z-index:-3;
+    overflow-x: hidden;
+
+    min-height: 100vh;
+
+    /* Espaço para a navbar fixa */
+    padding-top: 90px;
 }
 
+/* =========================================
+   GLOBAL BACKGROUND
+========================================= */
 
-.overlay-layer{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
+/*
+   Mantemos estas classes caso alguma página
+   ainda possua os elementos antigos.
+*/
+
+.background-layer {
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.70)
+        ),
+        url("assets/bellialith-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+    pointer-events: none;
 }
 
-.overlay-layer::before{display:none;}
+.overlay-layer {
+    position: fixed;
+    inset: 0;
 
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.20)
+        );
 
-
-.navbar{
-width:100%;
-height:90px;
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:0 80px;
-
-border-bottom:1px solid rgba(255,255,255,.08);
-
-backdrop-filter:blur(3px);
+    z-index: -1;
+    pointer-events: none;
 }
 
-.logo-area{
-display:flex;
-align-items:center;
-gap:15px;
+/* =========================================
+   MAIN NAVBAR
+========================================= */
+
+.navbar,
+.site-header {
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-.logo-area img{
-width:58px;
-height:58px;
-border-radius:50%;
+/*
+   Garante que a navbar continue fixa
+   mesmo quando o conteúdo das páginas
+   tiver outros elementos posicionados.
+*/
+
+.navbar {
+    justify-content: space-between;
+    padding: 0 80px;
 }
 
-.logo-area h1{
-font-family:'Cinzel';
-font-size:34px;
-font-weight:600;
+.site-header {
+    justify-content: space-between;
+    padding: 0 80px;
 }
 
-nav{
-display:flex;
-gap:38px;
+/* =========================================
+   HOMEPAGE NAVBAR
+========================================= */
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-nav a{
-text-decoration:none;
-color:white;
-letter-spacing:1px;
-font-size:14px;
-text-transform:uppercase;
+.logo-area img {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.discord-btn{
-display:flex;
-align-items:center;
-gap:12px;
-
-text-decoration:none;
-color:white;
-
-border:1px solid rgba(255,255,255,.3);
-
-padding:14px 28px;
-
-transition:.3s;
+.logo-area h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    font-weight: 600;
 }
 
-.discord-btn img{
-width:22px;
-height:22px;
-object-fit:contain;
+/* =========================================
+   INTERNAL PAGE NAVBAR
+========================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    color: white;
+    text-decoration: none;
+
+    flex-shrink: 0;
 }
 
-.discord-btn:hover{
-background:white;
-color:black;
+.site-header .brand img,
+.site-footer .brand img {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+    object-fit: cover;
 }
 
-.hero{
-min-height:85vh;
-
-display:grid;
-grid-template-columns:1fr 1fr;
-
-align-items:center;
-
-padding:40px 100px;
+.site-header .brand span,
+.site-footer .brand span {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    font-weight: 600;
 }
 
-.eyebrow{
-display:inline-block;
+/* =========================================
+   NAVIGATION
+========================================= */
 
-padding:10px 20px;
-
-border:1px solid rgba(255,255,255,.2);
-
-letter-spacing:3px;
-font-size:12px;
-
-margin-bottom:30px;
+nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
-.hero-left h2{
-font-family:'Cinzel';
-font-size:96px;
-line-height:.95;
-margin-bottom:25px;
+nav a {
+    text-decoration: none;
+    color: white;
+
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    transition:
+        opacity 0.25s ease,
+        color 0.25s ease;
 }
 
-.hero-left h2 span{
-font-style:italic;
+nav a:hover {
+    opacity: 0.65;
 }
 
-.hero-left p{
-max-width:700px;
-font-size:21px;
-line-height:1.8;
-color:#d4d4d4;
-
-margin-bottom:35px;
+nav a.active {
+    opacity: 0.55;
 }
 
-.hero-buttons{
-display:flex;
-gap:20px;
-margin-bottom:40px;
+/* =========================================
+   DISCORD BUTTON
+========================================= */
+
+.discord-btn,
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    text-decoration: none;
+    color: white;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.30);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.discord-btn {
+    padding: 14px 28px;
+}
+
+.button-small {
+    padding: 13px 22px;
+
+    white-space: nowrap;
+
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.discord-btn img {
+    width: 22px;
+    height: 22px;
+
+    object-fit: contain;
+
+    transition:
+        filter 0.25s ease;
+}
+
+.discord-btn:hover,
+.button:hover {
+    background: white;
+    color: black;
+
+    border-color: white;
+}
+
+.discord-btn:hover img {
+    filter: brightness(0);
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 85vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    padding: 40px 100px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    letter-spacing: 3px;
+    font-size: 12px;
+
+    margin-bottom: 30px;
+}
+
+.hero-left h2 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 96px;
+    line-height: 0.95;
+
+    margin-bottom: 25px;
+}
+
+.hero-left h2 span {
+    font-style: italic;
+}
+
+.hero-left p {
+    max-width: 700px;
+
+    font-size: 21px;
+    line-height: 1.8;
+
+    color: #d4d4d4;
+
+    margin-bottom: 35px;
+}
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+
+    margin-bottom: 40px;
 }
 
 .main-btn,
-.secondary-btn{
-padding:18px 35px;
-text-decoration:none;
-letter-spacing:1px;
-font-weight:600;
+.secondary-btn {
+    padding: 18px 35px;
+
+    text-decoration: none;
+
+    letter-spacing: 1px;
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.main-btn{
-background:white;
-color:black;
+.main-btn {
+    background: white;
+    color: black;
 }
 
-.secondary-btn{
-border:1px solid rgba(255,255,255,.2);
-color:white;
+.secondary-btn {
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
 }
 
-.hero-right{
-position:relative;
-
-display:flex;
-justify-content:center;
-align-items:center;
+.secondary-btn:hover {
+    background: white;
+    color: black;
 }
 
-.floating-name{
-position:absolute;
+/* =========================================
+   MINI FEATURES
+========================================= */
 
-font-size:120px;
-
-font-family:'Cinzel';
-
-opacity:.18;
-
-letter-spacing:8px;
-
-z-index:1;
+.mini-features {
+    display: flex;
+    gap: 25px;
 }
 
-.bellialith-art{
-width:1050px;
-max-width:none;
+.mini-features span {
+    opacity: 0.75;
 
-position:relative;
-
-z-index:2;
-
-animation:float 6s ease-in-out infinite;
-
-filter:
-drop-shadow(0 0 40px rgba(255,255,255,.15));
+    letter-spacing: 2px;
+    font-size: 13px;
 }
 
-.status-box{
-position:absolute;
+/* =========================================
+   HERO RIGHT
+========================================= */
 
-right:0;
-bottom:70px;
+.hero-right {
+    position: relative;
 
-display:flex;
-align-items:center;
-gap:12px;
+    display: flex;
 
-padding:18px 22px;
-
-background:rgba(0,0,0,.7);
-
-border:1px solid rgba(255,255,255,.15);
-
-z-index:3;
+    justify-content: center;
+    align-items: center;
 }
 
-.online-dot{
-width:10px;
-height:10px;
+.floating-name {
+    position: absolute;
 
-background:#00ff55;
-border-radius:50%;
+    font-size: 120px;
+
+    font-family: 'Cinzel', serif;
+
+    opacity: 0.18;
+
+    letter-spacing: 8px;
+
+    z-index: 1;
+
+    white-space: nowrap;
 }
 
-.status-box h4{
-font-size:14px;
-letter-spacing:2px;
+.bellialith-art {
+    width: 1050px;
+    max-width: none;
+
+    position: relative;
+
+    z-index: 2;
+
+    animation:
+        float 6s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 40px
+            rgba(255, 255, 255, 0.15)
+        );
 }
 
-.status-box p{
-font-size:12px;
-color:#aaa;
+/* =========================================
+   STATUS BOX
+========================================= */
+
+.status-box {
+    position: absolute;
+
+    right: 0;
+    bottom: 70px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px 22px;
+
+    background:
+        rgba(0, 0, 0, 0.70);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    z-index: 3;
 }
 
-.mini-features{
-display:flex;
-gap:25px;
+.online-dot {
+    width: 10px;
+    height: 10px;
+
+    background: #00ff55;
+
+    border-radius: 50%;
 }
 
-.mini-features span{
-opacity:.75;
-letter-spacing:2px;
-font-size:13px;
+.status-box h4 {
+    font-size: 14px;
+    letter-spacing: 2px;
 }
 
-.experience{
-padding:120px 100px;
-text-align:center;
+.status-box p {
+    font-size: 12px;
+    color: #aaa;
 }
 
-.section-tag{
-letter-spacing:5px;
-font-size:12px;
+/* =========================================
+   EXPERIENCE
+========================================= */
 
-opacity:.8;
+.experience {
+    padding: 120px 100px;
 
-margin-bottom:20px;
+    text-align: center;
 }
 
-.experience h3{
-font-family:'Cinzel';
-font-size:72px;
+.section-tag {
+    letter-spacing: 5px;
+    font-size: 12px;
 
-margin-bottom:15px;
+    opacity: 0.8;
+
+    margin-bottom: 20px;
 }
 
-.experience p{
-color:#cfcfcf;
-margin-bottom:50px;
+.experience h3 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 72px;
+
+    margin-bottom: 15px;
 }
 
-.feature-grid{
-display:grid;
+.experience-description {
+    color: #cfcfcf;
 
-grid-template-columns:repeat(3,1fr);
-
-gap:25px;
+    margin-bottom: 50px;
 }
 
-.feature-card{
-background:rgba(0,0,0,.55);
+/* =========================================
+   FEATURE GRID
+========================================= */
 
-border:1px solid rgba(255,255,255,.15);
+.feature-grid {
+    display: grid;
 
-padding:40px;
+    grid-template-columns:
+        repeat(3, 1fr);
 
-transition:.3s;
+    gap: 25px;
+
+    max-width: 1350px;
+
+    margin: 0 auto;
 }
 
-.feature-card:hover{
-transform:translateY(-6px);
+/* =========================================
+   FEATURE CARD
+========================================= */
 
-border-color:white;
+.feature-card {
+    position: relative;
+
+    min-height: 320px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    padding: 45px 35px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
 }
 
-.feature-card h4{
-font-family:'Cinzel';
-font-size:28px;
+.feature-card::before {
+    content: "";
 
-margin-bottom:15px;
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 40%
+        );
+
+    pointer-events: none;
 }
 
-.feature-card p{
-line-height:1.7;
+.feature-card:hover {
+    transform:
+        translateY(-8px);
+
+    border-color:
+        rgba(255, 255, 255, 0.5);
+
+    background:
+        rgba(0, 0, 0, 0.70);
 }
 
-footer{
-padding:60px;
+/* =========================================
+   FEATURE ICON
+========================================= */
 
-display:flex;
-justify-content:space-between;
-align-items:center;
+.feature-icon {
+    width: 90px;
+    height: 90px;
 
-border-top:1px solid rgba(255,255,255,.08);
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    position: relative;
+
+    z-index: 1;
 }
 
-.footer-logo{
-display:flex;
-align-items:center;
-gap:15px;
+.feature-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(255, 255, 255, 0.12)
+        );
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
 }
 
-.footer-logo img{
-width:50px;
-height:50px;
-border-radius:50%;
+.feature-card:hover .feature-icon img {
+    transform:
+        scale(1.1);
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(255, 255, 255, 0.25)
+        );
 }
 
-.footer-logo span{
-font-family:'Cinzel';
-font-size:30px;
+/* =========================================
+   FEATURE TEXT
+========================================= */
+
+.feature-card h4 {
+    position: relative;
+
+    z-index: 1;
+
+    font-family: 'Cinzel', serif;
+
+    font-size: 26px;
+
+    margin-bottom: 14px;
+
+    letter-spacing: 0.5px;
 }
 
-@keyframes float{
+.feature-card p {
+    position: relative;
 
-0%{
-transform:translateY(0px);
+    z-index: 1;
+
+    max-width: 320px;
+
+    line-height: 1.7;
+
+    color: #cfcfcf;
+
+    margin: 0;
+
+    font-size: 15px;
 }
 
-50%{
-transform:translateY(-15px);
+/* =========================================
+   INTERNAL PAGES
+========================================= */
+
+.docs-page,
+.legal-page {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(1100px, calc(100% - 50px));
+
+    margin: 0 auto;
+
+    padding: 90px 0 120px;
 }
 
-100%{
-transform:translateY(0px);
+/* =========================================
+   PAGE HERO
+========================================= */
+
+.page-hero {
+    padding: 20px 0 70px;
 }
 
+.page-hero h1,
+.legal-page h1 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 68px;
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+
+    text-transform: uppercase;
 }
 
-@media(max-width:1200px){
+.page-hero p {
+    color: #cfcfcf;
 
-.hero{
-grid-template-columns:1fr;
-text-align:center;
+    font-size: 17px;
+    line-height: 1.7;
+
+    max-width: 700px;
 }
 
-.hero-left{
-margin-bottom:60px;
+.page-hero .eyebrow {
+    margin-bottom: 25px;
 }
 
-.hero-left p{
-margin:auto auto 35px;
+/* =========================================
+   COMMAND / DOC SECTIONS
+========================================= */
+
+.command-section {
+    margin-bottom: 70px;
 }
 
-.hero-buttons{
-justify-content:center;
+.command-section h2 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 30px;
+
+    margin-bottom: 25px;
 }
 
-.mini-features{
-justify-content:center;
+.command-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
 }
 
-.feature-grid{
-grid-template-columns:1fr;
+.command-card {
+    padding: 28px;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
 }
 
-.hero-left h2{
-font-size:64px;
+.command-card:hover {
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255, 255, 255, 0.35);
+
+    background:
+        rgba(0, 0, 0, 0.70);
 }
 
-.bellialith-art{
-width:550px;
+.command-card code {
+    display: block;
+
+    color: white;
+
+    font-family: 'Inter', sans-serif;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    margin-bottom: 12px;
 }
 
+.command-card p {
+    color: #cfcfcf;
+
+    line-height: 1.7;
+
+    font-size: 15px;
+}
+
+/* =========================================
+   LEGAL PAGES
+========================================= */
+
+.legal-page {
+    max-width: 950px;
+}
+
+.legal-page h1 {
+    margin-bottom: 15px;
+}
+
+.legal-page .muted {
+    color: #999;
+
+    font-size: 13px;
+
+    margin-bottom: 35px;
+}
+
+.legal-page .notice {
+    padding: 20px 25px;
+
+    margin-bottom: 60px;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    color: #cfcfcf;
+
+    line-height: 1.7;
+}
+
+.legal-page .notice strong {
+    color: white;
+}
+
+.legal-page h2 {
+    font-family: 'Cinzel', serif;
+
+    font-size: 27px;
+
+    margin-top: 45px;
+    margin-bottom: 14px;
+}
+
+.legal-page p {
+    color: #d0d0d0;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    max-width: 900px;
+}
+
+.legal-page a {
+    color: white;
+
+    text-decoration: underline;
+
+    text-underline-offset: 3px;
+}
+
+.legal-page a:hover {
+    opacity: 0.7;
+}
+
+/* =========================================
+   FOOTER — HOMEPAGE
+========================================= */
+
+footer {
+    padding: 60px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    position: relative;
+
+    z-index: 2;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+}
+
+.footer-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.footer-logo span {
+    font-family: 'Cinzel', serif;
+
+    font-size: 30px;
+}
+
+footer p {
+    letter-spacing: 4px;
+
+    font-size: 12px;
+
+    color: #aaa;
+}
+
+/* =========================================
+   INTERNAL FOOTER
+========================================= */
+
+.site-footer {
+    padding: 50px 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.site-footer p {
+    color: #777;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+.footer-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+.footer-links a {
+    color: #aaa;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition:
+        color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* =========================================
+   FLOAT ANIMATION
+========================================= */
+
+@keyframes float {
+    0% {
+        transform:
+            translateY(0px);
+    }
+
+    50% {
+        transform:
+            translateY(-15px);
+    }
+
+    100% {
+        transform:
+            translateY(0px);
+    }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+
+    .navbar,
+    .site-header {
+        padding: 0 40px;
+    }
+
+    nav {
+        gap: 20px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding:
+            70px 50px;
+    }
+
+    .hero-left {
+        margin-bottom: 60px;
+    }
+
+    .hero-left p {
+        margin:
+            auto auto 35px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .mini-features {
+        justify-content: center;
+    }
+
+    .hero-right {
+        min-height: 600px;
+    }
+
+    .bellialith-art {
+        width: 550px;
+        max-width: 100%;
+    }
+
+    .floating-name {
+        font-size: 80px;
+    }
+
+    .status-box {
+        right: 10%;
+    }
+
+    .feature-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .hero-left h2 {
+        font-size: 64px;
+    }
+
+    .page-hero h1,
+    .legal-page h1 {
+        font-size: 56px;
+    }
+
+    .docs-page,
+    .legal-page {
+        padding-top: 70px;
+    }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding-top: 75px;
+    }
+
+    .navbar,
+    .site-header {
+        height: 75px;
+
+        padding:
+            0 20px;
+    }
+
+    .logo-area {
+        gap: 10px;
+    }
+
+    .logo-area img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo-area h1 {
+        font-size: 25px;
+    }
+
+    .site-header .brand img {
+        width: 43px;
+        height: 43px;
+    }
+
+    .site-header .brand span {
+        font-size: 23px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .site-header .button-small {
+        display: none;
+    }
+
+    .hero {
+        padding:
+            50px 25px;
+    }
+
+    .hero-left h2 {
+        font-size: 48px;
+    }
+
+    .hero-left p {
+        font-size: 17px;
+
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .main-btn,
+    .secondary-btn {
+        width: 100%;
+
+        max-width: 300px;
+
+        text-align: center;
+    }
+
+    .mini-features {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero-right {
+        min-height: 450px;
+    }
+
+    .bellialith-art {
+        width: 100%;
+
+        max-width: 500px;
+    }
+
+    .floating-name {
+        font-size: 45px;
+
+        letter-spacing: 4px;
+    }
+
+    .status-box {
+        right: 50%;
+
+        transform:
+            translateX(50%);
+
+        bottom: 20px;
+
+        white-space: nowrap;
+    }
+
+    .experience {
+        padding:
+            80px 25px;
+    }
+
+    .experience h3 {
+        font-size: 48px;
+    }
+
+    .experience-description {
+        line-height: 1.6;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .feature-card {
+        min-height: 300px;
+
+        padding:
+            40px 25px;
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding:
+            40px 25px;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        text-align: center;
+    }
+
+    .footer-logo span {
+        font-size: 26px;
+    }
+
+    /* INTERNAL PAGES */
+
+    .docs-page,
+    .legal-page {
+        width: calc(100% - 40px);
+
+        padding:
+            55px 0 80px;
+    }
+
+    .page-hero {
+        padding:
+            10px 0 45px;
+    }
+
+    .page-hero h1,
+    .legal-page h1 {
+        font-size: 43px;
+    }
+
+    .page-hero p {
+        font-size: 15px;
+    }
+
+    .command-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .command-section {
+        margin-bottom: 50px;
+    }
+
+    .command-section h2 {
+        font-size: 24px;
+    }
+
+    .command-card {
+        padding: 22px;
+    }
+
+    .legal-page .notice {
+        padding: 18px;
+
+        margin-bottom: 45px;
+    }
+
+    .legal-page h2 {
+        font-size: 23px;
+
+        margin-top: 38px;
+    }
+
+    .legal-page p {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        padding:
+            40px 25px;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .site-footer .brand span {
+        font-size: 25px;
+    }
+
+    .footer-links {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
 }
