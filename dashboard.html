@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Bellialith</title>
+    <meta name="description" content="Your Bellialith account dashboard.">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .dashboard-page {
+            width: min(1050px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 110px 0 100px;
+        }
+        .dashboard-hero {
+            margin-bottom: 28px;
+        }
+        .dashboard-hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(42px, 6vw, 72px);
+            margin-bottom: 10px;
+        }
+        .dashboard-hero p {
+            color: #cfcfcf;
+            line-height: 1.7;
+        }
+        .account-card {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 25px;
+            align-items: center;
+            padding: 32px;
+            background: rgba(0,0,0,.65);
+            border: 1px solid rgba(255,255,255,.14);
+            backdrop-filter: blur(8px);
+        }
+        .account-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,.2);
+        }
+        .account-info h2 {
+            margin-bottom: 8px;
+            font-family: 'Cinzel', serif;
+        }
+        .account-id {
+            color: #999;
+            font-size: 12px;
+            word-break: break-all;
+        }
+        .account-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+            color: #bdbdbd;
+            font-size: 13px;
+        }
+        .account-status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #57f287;
+        }
+        .dashboard-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .dashboard-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 18px;
+            border: 1px solid rgba(255,255,255,.18);
+            color: white;
+            text-decoration: none;
+            background: rgba(255,255,255,.06);
+            font-size: 13px;
+            font-weight: 600;
+            transition: .2s ease;
+        }
+        .dashboard-button:hover {
+            background: white;
+            color: black;
+        }
+        .dashboard-button.primary {
+            background: #5865f2;
+            border-color: #5865f2;
+        }
+        .dashboard-button.primary:hover {
+            background: #4752c4;
+            color: white;
+        }
+        .coming-card {
+            margin-top: 24px;
+            padding: 28px 32px;
+            background: rgba(0,0,0,.5);
+            border: 1px solid rgba(255,255,255,.1);
+        }
+        .coming-card h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 10px;
+        }
+        .coming-card p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+        @media (max-width: 760px) {
+            .account-card {
+                grid-template-columns: 80px 1fr;
+            }
+            .account-avatar {
+                width: 80px;
+                height: 80px;
+            }
+            .dashboard-actions {
+                grid-column: 1 / -1;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand">
+                <img src="assets/bellialith-chibi.png" alt="Bellialith">
+                <span>Bellialith</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="features.html">FEATURES</a>
+                <a href="commands.html">COMMANDS</a>
+                <a href="updates.html">UPDATES</a>
+                <a href="privacy.html">PRIVACY</a>
+                <a href="terms.html">TERMS</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="dashboard-page">
+        <div class="dashboard-hero">
+            <div class="eyebrow">BELLIALITH ACCOUNT</div>
+            <h1>Welcome back.</h1>
+            <p>Your Discord account is securely connected to Bellialith.</p>
+        </div>
+
+        <section class="account-card">
+            <img id="avatar" class="account-avatar" src="assets/bellialith-chibi.png" alt="Discord avatar">
+            <div class="account-info">
+                <h2 id="username">Loading...</h2>
+                <div class="account-id" id="discord-id"></div>
+                <div class="account-status">Authenticated with Discord</div>
+            </div>
+            <div class="dashboard-actions">
+                <a class="dashboard-button primary" href="profile.html">Edit Profile</a>
+                <a class="dashboard-button" href="/auth/logout">Log out</a>
+            </div>
+        </section>
+
+        <section class="coming-card">
+            <h3>Your Bellialith profile</h3>
+            <p>
+                Profile editing is the next phase. You will be able to manage
+                your Bellialith profile and upload supported images without
+                giving Bellialith access to your Discord password.
+            </p>
+        </section>
+    </main>
+
+    <script>
+        async function loadAccount() {
+            try {
+                const response = await fetch("/api/me", {
+                    credentials: "same-origin",
+                    headers: { "Accept": "application/json" }
+                });
+
+                if (!response.ok) {
+                    window.location.replace("login.html");
+                    return;
+                }
+
+                const user = await response.json();
+                document.getElementById("username").textContent =
+                    user.username || "Discord User";
+                document.getElementById("discord-id").textContent =
+                    "Discord ID: " + user.discord_id;
+
+                if (user.avatar_url) {
+                    document.getElementById("avatar").src = user.avatar_url;
+                }
+            } catch (error) {
+                window.location.replace("login.html?error=oauth_failed");
+            }
+        }
+
+        loadAccount();
+    </script>
+</body>
+</html>

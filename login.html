@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login — Bellialith</title>
+    <meta
+        name="description"
+        content="Sign in to Bellialith securely using your Discord account."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================================
+           LOGIN PAGE
+           ========================================================= */
+
+        .login-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 25px 80px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        .login-card {
+            background: rgba(0, 0, 0, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 55px 50px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .login-logo {
+            width: 76px;
+            height: 76px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .login-card h1 {
+            margin: 0 0 12px;
+            font-size: 42px;
+            letter-spacing: 1px;
+        }
+
+        .login-subtitle {
+            margin: 0 auto 35px;
+            max-width: 390px;
+            color: rgba(255, 255, 255, 0.68);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .discord-login-button {
+            width: 100%;
+            min-height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            background: #5865f2;
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .discord-login-button:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .discord-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .login-security {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .login-security h2 {
+            margin: 0 0 10px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .login-security p {
+            margin: 0 auto;
+            max-width: 410px;
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .login-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .login-links a {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .login-links a:hover {
+            color: #ffffff;
+        }
+
+        .login-note {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.38);
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 700px) {
+            .login-page {
+                padding: 80px 18px 60px;
+            }
+
+            .login-card {
+                padding: 40px 25px;
+            }
+
+            .login-card h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
+
+    <header class="site-header">
+        <div class="nav-container">
+
+            <a href="index.html" class="brand">
+                <img
+                    src="/assets/bellialith-pfp.png"
+                    alt="Bellialith"
+                >
+                <span>Bellialith</span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">HOME</a>
+                <a href="features.html">FEATURES</a>
+                <a href="commands.html">COMMANDS</a>
+                <a href="updates.html">UPDATES</a>
+                <a href="privacy.html">PRIVACY</a>
+                <a href="terms.html">TERMS</a>
+            </nav>
+
+            <a
+                href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&permissions=8&integration_type=0&scope=bot+applications.commands"
+                class="nav-discord"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ADD TO DISCORD
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- =========================================================
+         LOGIN
+         ========================================================= -->
+
+    <main class="login-page">
+
+        <div class="login-container">
+
+            <section class="login-card">
+
+                <img
+                    src="/assets/bellialith-pfp.png"
+                    alt="Bellialith"
+                    class="login-logo"
+                >
+
+                <h1>LOGIN</h1>
+
+                <p class="login-subtitle">
+                    Sign in to Bellialith using your Discord account
+                    and access your Bellialith profile.
+                </p>
+
+
+                <!-- Discord OAuth2 login handled by the Bellialith backend. -->
+
+                <a
+                    href="/auth/discord"
+                    class="discord-login-button"
+                    id="discord-login"
+                >
+                    <span class="discord-icon">◈</span>
+                    LOGIN WITH DISCORD
+                </a>
+
+
+                <div id="login-message" class="login-message" hidden></div>
+
+                <div class="login-security">
+
+                    <h2>Secure Authentication</h2>
+
+                    <p>
+                        Bellialith does not ask for or store your
+                        Discord password. Authentication will be
+                        handled through Discord's official
+                        authorization system.
+                    </p>
+
+                </div>
+
+
+                <div class="login-links">
+
+                    <a href="privacy.html">
+                        Privacy Policy
+                    </a>
+
+                    <a href="terms.html">
+                        Terms of Service
+                    </a>
+
+                </div>
+
+
+                <p class="login-note">
+                    By continuing, you will be redirected to Discord
+                    to authorize access to your Bellialith account.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="brand">
+                <span>Bellialith</span>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="commands.html">Commands</a>
+                <a href="updates.html">Updates</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
+
+            <p>
+                © 2026 Bellialith. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const message = document.getElementById("login-message");
+
+        const errors = {
+            discord_denied: "Discord authorization was cancelled.",
+            oauth_failed: "We could not complete Discord authentication. Please try again.",
+            invalid_state: "The login session expired or was invalid. Please try again.",
+        };
+
+        const error = params.get("error");
+
+        if (error && errors[error]) {
+            message.textContent = errors[error];
+            message.hidden = false;
+        }
+
+        if (params.get("logged_out") === "1") {
+            message.textContent = "You have been logged out of Bellialith.";
+            message.hidden = false;
+        }
+    </script>
+
+</body>
+</html>

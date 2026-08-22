@@ -1,0 +1,22 @@
+BELLIALITH PHASE 2 — DISCORD LOGIN
+
+1. Copy web/.env.example to web/.env.
+2. Put the real Discord OAuth2 client ID and client secret in web/.env.
+3. Generate a new random FLASK_SECRET_KEY.
+4. In Discord Developer Portal, add the exact redirect URI:
+   https://bellialith.karmasect.xyz/auth/discord/callback
+5. Run:
+   python -m pip install -r web/requirements.txt
+   python web/app.py
+6. The public domain must route /, /login.html, /dashboard.html and
+   /auth/* to this Flask application. Static-only GitHub Pages cannot
+   execute Flask routes.
+7. Never upload web/.env to GitHub or send it to anyone.
+
+LOCAL:
+   python web/app.py
+   open http://127.0.0.1:5000/login.html
+
+NEXT:
+   Connect the authenticated Discord ID to the existing Bellialith
+   SQLite data and implement the profile editor/image upload system.

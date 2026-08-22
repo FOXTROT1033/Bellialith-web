@@ -101,3 +101,60 @@ Bellialith and its website are actively being developed.
 
 Features, commands, documentation and visual elements may change
 as development continues.
+
+
+## Discord Login / Web Backend
+
+The website now includes a Flask backend for Discord OAuth2.
+
+### Local setup
+
+From `StoatBot/web`:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Copy `web/.env.example` to `web/.env` and fill in:
+
+- `DISCORD_CLIENT_ID`
+- `DISCORD_CLIENT_SECRET`
+- `DISCORD_REDIRECT_URI`
+- `FLASK_SECRET_KEY`
+
+For local testing, use a localhost redirect URI in the Discord Developer
+Portal and set the same value in `.env`, for example:
+
+`http://127.0.0.1:5000/auth/discord/callback`
+
+Also set `COOKIE_SECURE=false` locally because local HTTP does not use HTTPS.
+
+Then start the backend:
+
+```powershell
+python app.py
+```
+
+Open the website through Flask:
+
+`http://127.0.0.1:5000/login.html`
+
+Do not open `login.html` directly with `file://`. The `/auth/discord`
+route belongs to the Flask backend.
+
+### Security notes
+
+The website never receives a Discord password.
+
+The OAuth2 authorization code is exchanged server-side. The Discord
+access token is used only for the account lookup and is deliberately not
+stored in the Bellialith database.
+
+The session contains the Discord user ID and basic display information.
+The database currently stores the Discord ID, display name, avatar hash,
+creation time and last login time.
+
+The next phase will connect the authenticated Discord ID to Bellialith's
+existing bot/profile data and add the profile editor.
