@@ -236,7 +236,7 @@ def discord_callback():
     session["username"] = username
     session["avatar_url"] = avatar_url(user)
 
-    return redirect("/dashboard.html")
+    return redirect("/")
 
 
 @app.route("/auth/logout")
@@ -262,14 +262,68 @@ def current_user():
     )
 
 
+def is_authenticated():
+    return bool(session.get("discord_id"))
+
+
 @app.route("/")
 def home():
+    # Bellialith requires Discord authentication before entering the main site.
+    if not is_authenticated():
+        return redirect("/login")
     return send_from_directory(BASE_DIR, "index.html")
 
 
 @app.route("/login")
 def login():
+    # A logged-in user should not be sent back to the login screen.
+    if is_authenticated():
+        return redirect("/dashboard")
     return send_from_directory(BASE_DIR, "login.html")
+
+
+# Explicit public page routes. These avoid relying on the catch-all route
+# for normal site navigation and make every HTML page directly addressable.
+_PAGE_FILES = {
+    "index": "index.html",
+    "login": "login.html",
+    "features": "features.html",
+    "commands": "commands.html",
+    "updates": "updates.html",
+    "privacy": "privacy.html",
+    "terms": "terms.html",
+    "dashboard": "dashboard.html",
+    "profile": "profile.html",
+}
+
+
+_PROTECTED_PAGES = set(_PAGE_FILES) - {"login"}
+
+
+def serve_page(page_name):
+    if page_name in _PROTECTED_PAGES and not is_authenticated():
+        return redirect("/login")
+    if page_name == "login" and is_authenticated():
+        return redirect("/dashboard")
+    return send_from_directory(BASE_DIR, _PAGE_FILES[page_name])
+
+
+for _page_name, _filename in _PAGE_FILES.items():
+    # Keep the legacy .html URLs working.
+    app.add_url_rule(
+        f"/{_filename}",
+        endpoint=f"page_{_page_name}_html",
+        view_func=lambda page_name=_page_name: serve_page(page_name),
+    )
+
+    # Public clean URLs used by the website navigation.
+    app.add_url_rule(
+        f"/{_page_name}",
+        endpoint=f"page_{_page_name}",
+        view_func=lambda page_name=_page_name: serve_page(page_name),
+    )
+
+
 
 
 @app.route("/<path:path>")
@@ -289,6 +343,10 @@ def site_files(path):
 
     if os.path.isfile(requested):
         return send_from_directory(BASE_DIR, path)
+
+    # Do not silently expose the Home page for unknown routes.
+    if not is_authenticated():
+        return redirect("/login")
 
     return send_from_directory(BASE_DIR, "index.html")
 

@@ -30,7 +30,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css">
+        href="style.css?v=3">
 
 </head>
 
@@ -51,104 +51,24 @@
          NAVBAR
     ========================================== -->
 
-    <header class="navbar">
-
-
-        <!-- LOGO -->
-
-        <div class="logo-area">
-
-            <a
-                href="index.html"
-                class="brand">
-
-                <img
-                    src="assets/bellialith-pfp.png"
-                    alt="Bellialith">
-
-                <h1>
-                    Bellialith
-                </h1>
-
-            </a>
-
-        </div>
-
-
-        <!-- NAVIGATION -->
-
-        <nav>
-
-
-            <!-- HOME -->
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <!-- FEATURES -->
-
-            <a
-                href="features.html"
-                class="active">
-
-                Features
-
-            </a>
-
-
-            <!-- COMMANDS -->
-
-            <a href="commands.html">
-                Commands
-            </a>
-
-
-            <!-- UPDATES -->
-
-            <a href="updates.html">
-                Updates
-            </a>
-
-
-            <!-- PRIVACY -->
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-
-            <!-- TERMS -->
-
-            <a href="terms.html">
-                Terms
-            </a>
-
-
-            <!-- ADD TO DISCORD -->
-
-            <a
-                href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&scope=bot%20applications.commands"
-                class="discord-btn"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img
-                    src="assets/discordlogo.png"
-                    alt="Discord">
-
-                <span>
-                    ADD TO DISCORD
-                </span>
-
-            </a>
-
-
+    <header class="site-header">
+    <div class="nav-container">
+        <a href="/" class="brand">
+            <img src="assets/bellialith_store.png" alt="Bellialith">
+            <span>Bellialith</span>
+        </a>
+        <nav class="site-nav">
+                <a href="/" class="">Home</a>
+                <a href="/features" class="active">Features</a>
+                <a href="/commands" class="">Commands</a>
+                <a href="/updates" class="">Updates</a>
+                <a href="/privacy" class="">Privacy</a>
+                <a href="/terms" class="">Terms</a>
+            <a href="/dashboard" class="nav-dashboard">Dashboard</a>
+            <a href="/auth/logout" class="nav-logout">Log out</a>
         </nav>
-
-
-    </header>
+    </div>
+</header>
 
 
     <!-- =========================================
@@ -428,7 +348,7 @@
             <!-- BACK TO HOME -->
 
             <a
-                href="index.html"
+                href="/"
                 class="secondary-btn">
 
                 BACK TO HOME
@@ -452,7 +372,7 @@
         <div class="footer-logo">
 
             <a
-                href="index.html"
+                href="/"
                 class="brand">
 
                 <img

@@ -14,7 +14,7 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 
 <body id="top">
@@ -31,89 +31,24 @@
          NAVBAR
     ========================================== -->
 
-    <header class="navbar">
-
-        <div class="logo-area">
-
-            <img
-                src="assets/bellialith-pfp.png"
-                alt="Bellialith">
-
-            <h1>Bellialith</h1>
-
-        </div>
-
-
-        <nav>
-
-            <!-- HOME -->
-
-            <a href="index.html#top">
-                Home
-            </a>
-
-
-            <!-- FEATURES -->
-
-            <a href="features.html">
-                Features
-            </a>
-
-
-            <!-- COMMANDS -->
-
-            <!--
-                Sem target="_blank".
-                Commands agora abre na mesma aba.
-            -->
-
-            <a href="commands.html">
-                Commands
-            </a>
-
-
-            <!-- UPDATES -->
-
-            <a href="updates.html">
-                Updates
-            </a>
-
-
-            <!-- PRIVACY -->
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-
-            <!-- TERMS -->
-
-            <a href="terms.html">
-                Terms
-            </a>
-
-
-            <!-- ADD TO DISCORD -->
-
-            <a
-                href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&scope=bot%20applications.commands"
-                class="discord-btn"
-                target="_blank"
-                rel="noopener noreferrer">
-
-                <img
-                    src="assets/discordlogo.png"
-                    alt="Discord">
-
-                <span>
-                    ADD TO DISCORD
-                </span>
-
-            </a>
-
+    <header class="site-header">
+    <div class="nav-container">
+        <a href="/" class="brand">
+            <img src="assets/bellialith_store.png" alt="Bellialith">
+            <span>Bellialith</span>
+        </a>
+        <nav class="site-nav">
+                <a href="/" class="active">Home</a>
+                <a href="/features" class="">Features</a>
+                <a href="/commands" class="">Commands</a>
+                <a href="/updates" class="">Updates</a>
+                <a href="/privacy" class="">Privacy</a>
+                <a href="/terms" class="">Terms</a>
+            <a href="/dashboard" class="nav-dashboard">Dashboard</a>
+            <a href="/auth/logout" class="nav-logout">Log out</a>
         </nav>
-
-    </header>
+    </div>
+</header>
 
 
     <!-- =========================================
@@ -151,15 +86,7 @@
 
                 <!-- ADD BELLIALITH -->
 
-                <a
-                    href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&scope=bot%20applications.commands"
-                    class="main-btn"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    ADD BELLIALITH
-
-                </a>
+                <a href="/dashboard" class="main-btn">OPEN DASHBOARD</a>
 
 
                 <!-- SUPPORT SERVER -->

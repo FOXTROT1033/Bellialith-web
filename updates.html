@@ -30,7 +30,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css">
+        href="style.css?v=3">
 
 </head>
 
@@ -53,95 +53,23 @@
     ========================================== -->
 
     <header class="site-header">
-
-
-        <!-- LOGO -->
-
-        <a
-            class="brand"
-            href="index.html">
-
-            <img
-                src="assets/bellialith_store.png"
-                alt="Bellialith">
-
-            <span>
-                Bellialith
-            </span>
-
+    <div class="nav-container">
+        <a href="/" class="brand">
+            <img src="assets/bellialith_store.png" alt="Bellialith">
+            <span>Bellialith</span>
         </a>
-
-
-
-        <!-- NAVIGATION -->
-
-        <nav>
-
-
-            <!-- HOME -->
-
-            <a href="index.html">
-                Home
-            </a>
-
-
-            <!-- FEATURES -->
-
-            <a href="features.html">
-                Features
-            </a>
-
-
-            <!-- COMMANDS -->
-
-            <a href="commands.html">
-                Commands
-            </a>
-
-
-            <!-- UPDATES -->
-
-            <a
-                class="active"
-                href="updates.html">
-
-                Updates
-
-            </a>
-
-
-            <!-- PRIVACY -->
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-
-            <!-- TERMS -->
-
-            <a href="terms.html">
-                Terms
-            </a>
-
-
+        <nav class="site-nav">
+                <a href="/" class="">Home</a>
+                <a href="/features" class="">Features</a>
+                <a href="/commands" class="">Commands</a>
+                <a href="/updates" class="active">Updates</a>
+                <a href="/privacy" class="">Privacy</a>
+                <a href="/terms" class="">Terms</a>
+            <a href="/dashboard" class="nav-dashboard">Dashboard</a>
+            <a href="/auth/logout" class="nav-logout">Log out</a>
         </nav>
-
-
-
-        <!-- ADD TO DISCORD -->
-
-        <a
-            class="button button-small"
-            href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&scope=bot%20applications.commands"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Add to Discord
-
-        </a>
-
-
-    </header>
+    </div>
+</header>
 
 
 
@@ -186,12 +114,12 @@
         <section class="command-section">
 
 
-            <div class="command-grid">
+            <div class="updates-grid">
 
 
                 <!-- UPDATE 01 -->
 
-                <article class="command-card">
+                <article class="update-card">
 
 
                     <small>
@@ -222,7 +150,7 @@
 
                 <!-- UPDATE 02 -->
 
-                <article class="command-card">
+                <article class="update-card">
 
 
                     <small>
@@ -252,7 +180,7 @@
 
                 <!-- UPDATE 03 -->
 
-                <article class="command-card">
+                <article class="update-card">
 
 
                     <small>
@@ -282,7 +210,7 @@
 
                 <!-- UPDATE 04 -->
 
-                <article class="command-card">
+                <article class="update-card">
 
 
                     <small>
@@ -319,7 +247,7 @@
              FUTURE UPDATES
         ========================================== -->
 
-        <section class="experience">
+        <section class="updates-cta">
 
 
             <div class="section-tag">
@@ -341,14 +269,13 @@
 
 
             <div
-                class="hero-buttons"
-                style="justify-content:center;">
+                class="hero-buttons">
 
 
                 <!-- BACK TO HOME -->
 
                 <a
-                    href="index.html"
+                    href="/"
                     class="secondary-btn">
 
                     BACK TO HOME
@@ -391,7 +318,7 @@
 
         <a
             class="brand"
-            href="index.html">
+            href="/">
 
             <img
                 src="assets/bellialith_store.png"
@@ -418,17 +345,17 @@
         <div class="footer-links">
 
 
-            <a href="terms.html">
+            <a href="/terms">
                 Terms
             </a>
 
 
-            <a href="privacy.html">
+            <a href="/privacy">
                 Privacy
             </a>
 
 
-            <a href="index.html">
+            <a href="/">
                 Home
             </a>
 

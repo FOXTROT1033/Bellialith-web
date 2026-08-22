@@ -19,7 +19,7 @@
 
     <link
         rel="stylesheet"
-        href="style.css">
+        href="style.css?v=3">
 
 </head>
 
@@ -32,68 +32,23 @@
     ========================================== -->
 
     <header class="site-header">
-
-
-        <a
-            class="brand"
-            href="index.html">
-
-            <img
-                src="assets/bellialith_store.png"
-                alt="Bellialith">
-
-            <span>
-                Bellialith
-            </span>
-
+    <div class="nav-container">
+        <a href="/" class="brand">
+            <img src="assets/bellialith_store.png" alt="Bellialith">
+            <span>Bellialith</span>
         </a>
-
-
-        <nav>
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="commands.html">
-                Commands
-            </a>
-
-            <a href="features.html">
-                Features
-            </a>
-
-            <a href="updates.html">
-                Updates
-            </a>
-
-            <a href="privacy.html">
-                Privacy
-            </a>
-
-            <a
-                href="terms.html"
-                class="active">
-
-                Terms
-
-            </a>
-
+        <nav class="site-nav">
+                <a href="/" class="">Home</a>
+                <a href="/features" class="">Features</a>
+                <a href="/commands" class="">Commands</a>
+                <a href="/updates" class="">Updates</a>
+                <a href="/privacy" class="">Privacy</a>
+                <a href="/terms" class="active">Terms</a>
+            <a href="/dashboard" class="nav-dashboard">Dashboard</a>
+            <a href="/auth/logout" class="nav-logout">Log out</a>
         </nav>
-
-
-        <a
-            class="button button-small"
-            href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&scope=bot%20applications.commands"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Add to Discord
-
-        </a>
-
-
-    </header>
+    </div>
+</header>
 
 
 
@@ -319,7 +274,7 @@
             For detailed information about the information
             Bellialith processes and how it is handled,
             please read the
-            <a href="privacy.html">
+            <a href="/privacy">
                 Privacy Policy
             </a>.
         </p>
@@ -432,7 +387,7 @@
 
         <a
             class="brand"
-            href="index.html">
+            href="/">
 
             <img
                 src="assets/bellialith_store.png"
@@ -453,18 +408,18 @@
         <div class="footer-links">
 
             <a
-                href="terms.html"
+                href="/terms"
                 class="active">
 
                 Terms
 
             </a>
 
-            <a href="privacy.html">
+            <a href="/privacy">
                 Privacy
             </a>
 
-            <a href="index.html">
+            <a href="/">
                 Home
             </a>
 

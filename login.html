@@ -10,7 +10,7 @@
         content="Sign in to Bellialith securely using your Discord account."
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 
     <style>
         /* =========================================================
@@ -160,39 +160,17 @@
 
 <body>
 
-    <!-- =========================================================
-         NAVIGATION
-         ========================================================= -->
-
-    <header class="site-header">
-        <div class="nav-container">
-
-            <a href="index.html" class="brand">
-                <img
-                    src="/assets/bellialith-pfp.png"
-                    alt="Bellialith"
-                >
+    <!-- Minimal authentication header: no public site navigation before login. -->
+    <header class="site-header auth-header">
+        <div class="nav-container auth-nav-container">
+            <a href="/login" class="brand">
+                <img src="/assets/bellialith-pfp.png" alt="Bellialith">
                 <span>Bellialith</span>
             </a>
-
-            <nav class="main-nav">
-                <a href="index.html">HOME</a>
-                <a href="features.html">FEATURES</a>
-                <a href="commands.html">COMMANDS</a>
-                <a href="updates.html">UPDATES</a>
-                <a href="privacy.html">PRIVACY</a>
-                <a href="terms.html">TERMS</a>
-            </nav>
-
-            <a
-                href="https://discord.com/oauth2/authorize?client_id=1539159766612574298&permissions=8&integration_type=0&scope=bot+applications.commands"
-                class="nav-discord"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                ADD TO DISCORD
-            </a>
-
+            <div class="auth-header-links">
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
         </div>
     </header>
 
@@ -228,7 +206,7 @@
                     class="discord-login-button"
                     id="discord-login"
                 >
-                    <span class="discord-icon">◈</span>
+                    <img class="discord-icon" src="/assets/discordlogo.png" alt="" width="20" height="20">
                     LOGIN WITH DISCORD
                 </a>
 
@@ -251,11 +229,11 @@
 
                 <div class="login-links">
 
-                    <a href="privacy.html">
+                    <a href="/privacy">
                         Privacy Policy
                     </a>
 
-                    <a href="terms.html">
+                    <a href="/terms">
                         Terms of Service
                     </a>
 
@@ -287,12 +265,8 @@
             </div>
 
             <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="features.html">Features</a>
-                <a href="commands.html">Commands</a>
-                <a href="updates.html">Updates</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="terms.html">Terms</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
             </div>
 
             <p>
