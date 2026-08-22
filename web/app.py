@@ -74,10 +74,12 @@ def avatar_url(user):
 
     if not avatar_hash:
         discriminator = user.get("discriminator", "0")
+
         try:
             index = int(discriminator) % 5
         except (TypeError, ValueError):
             index = 0
+
         return f"https://cdn.discordapp.com/embed/avatars/{index}.png"
 
     return (
@@ -87,11 +89,13 @@ def avatar_url(user):
 
 
 def require_configured_oauth():
-    if not all(
-        [DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_REDIRECT_URI]
-    ):
-        return False
-    return True
+    return all(
+        [
+            DISCORD_CLIENT_ID,
+            DISCORD_CLIENT_SECRET,
+            DISCORD_REDIRECT_URI,
+        ]
+    )
 
 
 @app.route("/auth/discord")
@@ -100,6 +104,7 @@ def discord_login():
         return "Discord OAuth2 is not configured.", 503
 
     state = secrets.token_urlsafe(32)
+
     session["oauth_state"] = state
     session.permanent = True
 
@@ -189,7 +194,11 @@ def discord_callback():
         return redirect("/login.html?error=oauth_failed")
 
     discord_id = user["id"]
-    username = user.get("global_name") or user.get("username") or "Discord User"
+    username = (
+        user.get("global_name")
+        or user.get("username")
+        or "Discord User"
+    )
     avatar_hash = user.get("avatar")
 
     connection = get_db()
@@ -222,6 +231,7 @@ def discord_callback():
     # The Discord access token is intentionally NOT stored.
     session.clear()
     session.permanent = True
+
     session["discord_id"] = discord_id
     session["username"] = username
     session["avatar_url"] = avatar_url(user)
@@ -286,8 +296,12 @@ def site_files(path):
 if __name__ == "__main__":
     init_database()
 
+    # Pterodactyl provides SERVER_PORT automatically.
+    # The application must listen on 0.0.0.0 so the panel can reach it.
+    port = int(os.getenv("SERVER_PORT", "25579"))
+
     app.run(
-        host=os.getenv("HOST", "127.0.0.1"),
-        port=int(os.getenv("PORT", "5000")),
-        debug=os.getenv("FLASK_DEBUG", "false").lower() == "true",
+        host="0.0.0.0",
+        port=port,
+        debug=False,
     )
